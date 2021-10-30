@@ -21,10 +21,8 @@ app.listen(port,() =>{
 const dialogflowFullfillment =(request, response) => {
     const agent = new WebhookClient({request, response})
     var soma = request.body.queryResult.parameters['number'] + request.body.queryResult.parameters['number1']
+    var plat = 0
 
-    function Soma(agent){
-        agent.add("O resultado é: "+ soma)
-    } 
     route.post('/dialogflow', (req, res, next) => {
 
         console.log(req.body);
@@ -37,19 +35,21 @@ const dialogflowFullfillment =(request, response) => {
         //const sourceWhatsapp = req.body.originalDetectIntentRequest.payload.source
     
         if(telegramButton === undefined){
-    
+            plat= 11
             // verifica se a mensagem foi enviada por um botão do telegram
             console.log("BOTÃO TELEGRAM")
     
             var idPlataforma = req.body.originalDetectIntentRequest.payload.data.from.id;
     
         } else {
+            plat= 12
             console.log("N/ BOTÃO TELEGRAM")
             var idPlataforma = req.body.originalDetectIntentRequest.payload.data.callback_query.from.id;
     
         }
     
         if (sourceTelegram == '' || sourceTelegram === null || sourceTelegram === undefined){
+            plat=2
             console.log("ENVIADO PELO GOOGLE")
     
             // armazenando o whatsapp como plataforma e o numero do celular como celular
@@ -59,12 +59,16 @@ const dialogflowFullfillment =(request, response) => {
     
         } else {
             console.log("ENVIADO PELO TELEGRAM")
+            plat=1
             // armazenando o telegram como plataforma e o id como celular
             //req.body.queryResult.parameters.plataforma = sourceTelegram; 
         }
         next();
         
     })
+    function Soma(agent){
+        agent.add("O resultado é: "+ soma+" Plataforma:"+plat)
+    } 
 
     let intentMap = new Map();
     intentMap.set("Soma", Soma)
