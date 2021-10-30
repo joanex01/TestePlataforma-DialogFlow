@@ -24,7 +24,7 @@ const dialogflowFullfillment =(request, response) => {
     var plat = 0
 
     route.post('/dialogflow', (req, res, next) => {
-
+        plat=234
         console.log(req.body);
         
         const telegramButton = req.body.originalDetectIntentRequest.payload.data.callback_query;
