@@ -67,8 +67,8 @@ const dialogflowFullfillment =(request, response) => {
         
     })
 
-    route.post('/dialogflow', DialogflowControle.checkIntent)
-    
+
+
     function Soma(agent){
         agent.add("O resultado é: "+ soma+" Plataforma:"+plat)
     } 
