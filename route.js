@@ -6,13 +6,13 @@ const route = express.Router();
 //const analytics = require('./controllers/analytics')
 var plat= 999;
 
-function checkAuthentication(req, res, next) {
+/*function checkAuthentication(req, res, next) {
     //if(req.isAuthenticated()) {return next()} else {res.redirect('/login?fail=true')}
 }
 
 route.get('/', async (req, res) => {
    
-});
+});*/
 
 /*route.get('/login', (req, res) => {
     if(req.query.fail) {
@@ -27,7 +27,7 @@ route.post('/login', passport.authenticate('local', {
     failureRedirect: '/login?fail=true' 
 }));*/
 
-route.get('/painel', checkAuthentication, async (req, res) => {
+/*route.get('/painel', checkAuthentication, async (req, res) => {
     // const plataformas = await messageSystem.findPlataform()
     //const estados = await messageSystem.findState()
     //const tipos_sanguineos = await messageSystem.findBloodType()
@@ -41,7 +41,7 @@ route.post('/mass_message', checkAuthentication, async (req, res) => {
     //const tipos_sanguineos = await messageSystem.findBloodType()
     //res.render('painel.ejs',{plataforma: ['telegram'] , estado: estados, tipo_sanguineo: tipos_sanguineos, message: message});
 
-} )
+} )*/
 
 route.post('/dialogflow', (req, res, next) => {
 
