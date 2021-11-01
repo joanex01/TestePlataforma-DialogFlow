@@ -23,7 +23,7 @@ const dialogflowFullfillment =(request, response) => {
     var soma = request.body.queryResult.parameters['number'] + request.body.queryResult.parameters['number1']
     var plat = 0
 
-    route.post('/dialogflow', (req, res, next) => {
+    /*route.post('/dialogflow', (req, res, next) => {
         plat=234
         console.log(req.body);
         
@@ -65,7 +65,7 @@ const dialogflowFullfillment =(request, response) => {
         }
         next();
         
-    })
+    })*/
 
 
 
